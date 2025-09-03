@@ -3,7 +3,7 @@ version: '3.9'
 services:
   frontend:
     build: .
-    container_name: kasselwood-chatbot
+    container_name: barker-frontend
     ports:
-      - "5179:80"
+      - "5128:80"
     restart: always
