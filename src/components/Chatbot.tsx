@@ -6,11 +6,6 @@ import ReactMarkdown from 'react-markdown';
 import { motion } from "framer-motion";
 import { FaChevronRight } from 'react-icons/fa';
 
-type Message = {
-  type: 'bot' | 'user';
-  text: string;
-  feedback: string | null;
-};
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(true);
