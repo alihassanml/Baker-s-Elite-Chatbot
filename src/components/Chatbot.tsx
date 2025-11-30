@@ -16,7 +16,7 @@ type Message = {
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const [screen, setScreen] = useState<'intro' | 'chat'>('intro');
+  const [screen, setScreen] = useState<'chat' | 'intro'>('chat');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [input, setInput] = useState('');
@@ -63,7 +63,7 @@ const Chatbot = () => {
       if (nameStored && emailStored) {
         setScreen("chat");
       } else {
-        setScreen("intro");
+        setScreen("chat");
       }
     }
   }, [isOpen]);
@@ -106,6 +106,23 @@ const Chatbot = () => {
       return rest;
     });
   };
+
+  useEffect(() => {
+  const alreadyShown = sessionStorage.getItem("default_message_shown");
+
+  if (!alreadyShown) {
+    setMessages([
+      {
+        type: "bot",
+        text: "Hi! This is Bakers Elite Remodeling. How we can help you with today?",
+        feedback: null
+      }
+    ]);
+
+    sessionStorage.setItem("default_message_shown", "true");
+  }
+}, []);
+
 
 const faqData = [
   {
