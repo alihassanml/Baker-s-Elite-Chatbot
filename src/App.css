@@ -1,0 +1,133 @@
+/*
+ * ===============================================
+ * Global Chatbot Styles (for Chatbot.tsx)
+ * ===============================================
+ */
+
+/* --- Curved header when on intro screen --- */
+.curved-rectangle {
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+}
+
+/* --- Typing animation for bot --- */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  height: 28px;
+}
+
+.typing-indicator .typing-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #888;
+  border-radius: 50%;
+  margin: 0 2px;
+  animation: bounce 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+
+.typing-indicator .typing-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing-indicator .typing-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* --- Chat bubbles --- */
+.chat-message {
+  max-width: 75%;
+  padding: 13px;
+  border-radius: 20px;
+  font-size: 14px;
+  word-wrap: break-word;
+}
+
+.chat-message.user {
+  background: linear-gradient(135deg, #848484ff, #000000ff);
+  color: #fff;
+  align-self: flex-end;
+}
+
+.chat-message.bot {
+  background: #f1f1f1;
+  color: #000;
+  align-self: flex-start;
+}
+
+/* --- Chat input box & send button --- */
+.chat-input {
+  display: flex;
+  padding: 8px;
+  box-shadow: 0 -4px 10px -4px #dfdfdf8a;
+  background: #fff;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+}
+
+.chat-input button {
+  margin-left: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #848484ff, #000000ff);
+  width: 40px;
+  height: 40px;
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Footer Navigation --- */
+.chat-footer-item {
+  text-align: center;
+  cursor: pointer;
+  color: #555;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: color 0.3s ease;
+}
+
+.chat-footer-item.active {
+  color: #000000ff;
+}
+
+/* ===============================================
+   Responsive (Mobile-first)
+   =============================================== */
+@media (max-width: 768px) {
+  /* Make the chatbot full screen */
+  .card {
+    width: 100vw !important;
+    height: 100vh !important;
+    border-radius: 0 !important;
+  }
+
+  /* Make header taller for small screens */
+  .curved-rectangle {
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+}
